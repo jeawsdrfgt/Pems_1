@@ -25,6 +25,11 @@ Route::get('/user', function () {
     return view('user');
 });
 
+Route::get('/procurement', function () {
+    return view('procurement');
+});
+
+
 
 Auth::routes();
 
@@ -33,3 +38,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin')->group(function (){
     Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
 });
+
+Route::prefix('procurement')->group(function (){
+    Route::get('/makesubmission', [App\Http\Controllers\Admin\SubmissionController::class, 'index'])->name('makesubmission');
+});
+
+Route::get('/user', [App\Http\Controllers\HomeController::class, 'changePassword'])->name('change-password');
+
+Route::post('/user', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('update-password');
+

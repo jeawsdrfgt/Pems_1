@@ -15,7 +15,7 @@
                     </span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="procurement.html">
+                <a href="/procurement">
                     <span class="material-icons-sharp">
                         inventory
                     </span>

@@ -268,4 +268,82 @@ main .analyse .progresss .percentage{
     width: 100%;
 }
 
+.right-section{
+    margin-top: 1.4rem;
+}
 
+.right-section .nav{
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.right-section .nav button{
+    display: none;
+}
+
+.right-section .dark-mode{
+    background-color: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.right-section .dark-mode span{
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-section .dark-mode span.active{
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: var(--border-radius-1);
+}
+
+main .defact{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+}
+
+main .procurement-1{
+    display:block;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+}
+
+main .procurement-1 > div{
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.right-section .nav .dark-mode{
+    width: 4.4rem;
+    position: absolute;
+    left: 66%;
+}
+
+
+
+input[type=password], input[type=submit] {
+    width: 50%;
+    padding: 12px;
+    margin: 8px 0;
+    display: grid;
+    justify-content: center;
+    border: 1px solid #a3a3a3;
+    box-sizing: border-box;
+  }
