@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SubmissionController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\DashboardController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,17 +38,17 @@ Route::get('/procurement', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->group(function (){
-    Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
 Route::prefix('procurement')->group(function (){
-    Route::get('/makesubmission', [App\Http\Controllers\Admin\SubmissionController::class, 'index'])->name('makesubmission');
+    Route::get('/makesubmission', [SubmissionController::class, 'index'])->name('makesubmission');
 });
 
-Route::get('/user', [App\Http\Controllers\HomeController::class, 'changePassword'])->name('change-password');
+Route::get('/user', [HomeController::class, 'changePassword'])->name('change-password');
 
-Route::post('/user', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('update-password');
+Route::post('/user', [HomeController::class, 'updatePassword'])->name('update-password');
 

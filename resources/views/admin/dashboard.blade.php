@@ -3,7 +3,7 @@
 @section('admincontent')
     <div class="container-1">
         <aside>
-            <a class="toggle" href="{{ url('/') }}">
+            <a class="toggle" href="{{ url('/dashboard') }}">
                 <div class="logo">
                     <h2>PEM<span class="danger">Sys</span></h2>
                 </div>

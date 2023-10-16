@@ -1,3 +1,3 @@
-@extends('layout.Submissionlayout')
+@extends('layouts.Submissionlayout')
 
 @section('submissioncontent')

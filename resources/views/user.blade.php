@@ -33,13 +33,19 @@
                 </span>
                 <h3>Employees</h3>
             </a>
-            <a href="/user">
+            <a href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();">
                 <span class="material-icons-sharp">
-                    manage_accounts
+                    logout
                 </span>
-                <h3>My Account</h3>
+                <h3>{{ __('Logout') }}</h3>
             </a>
+            
         </div>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
     </aside>
 
     <main>
@@ -125,7 +131,7 @@
                             </div>
                         </div>
                     </div>
-                    <h1>Title</h1>
+                    
                 </section>
 
             </div>

@@ -37,7 +37,7 @@
                     <span class="material-icons-sharp">
                         manage_accounts
                     </span>
-                    {{ Auth::user()->name }}   
+                    <h3>{{ Auth::user()->name }}</h3>
                 </a>                  
             </div>
         </aside>
