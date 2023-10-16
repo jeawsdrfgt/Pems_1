@@ -49,7 +49,7 @@
                     <span class="material-icons-sharp">
                         manage_accounts
                     </span>
-                    <h3>My Account</h3>
+                    <h3>{{ Auth::user()->name }}</h3>
                 </a>
             </div>
         </aside>
