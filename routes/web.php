@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubmissionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EmployeeinfoController;
+use App\Http\Controllers\Admin\userController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\procurementController;
 
 
 
@@ -43,7 +46,15 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->group(function (){
-    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+});
+
+Route::prefix('admin')->group(function (){
+    Route::get('/employeeinfo', [EmployeeinfoController::class, 'index'])->middleware('auth');
+});
+
+Route::prefix('admin')->group(function (){
+    Route::get('/user', [userController::class, 'index'])->middleware('auth');
 });
 
 Route::prefix('procurement')->group(function (){
@@ -61,4 +72,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     
 });
+
+Route::post('/procurement/makesubmission', [procurementController::class, 'store'])->name('store');
    

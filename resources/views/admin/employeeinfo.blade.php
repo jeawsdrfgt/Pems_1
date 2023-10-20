@@ -55,22 +55,9 @@
         </aside>
 
         <main>
-            <h1>Dashboard</h1>
-
-            <div class="dashboard">
-            </div>
-
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="board board-body bg-primary text-white mb-3">
-                        <label>Site Statistics</label>
-                           
-                    </div>
-                </div>
-            </div>
+            
         </main>
     </div>
 
-@endsection
 
 

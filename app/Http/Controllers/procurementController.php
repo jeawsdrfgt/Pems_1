@@ -19,8 +19,12 @@ class procurementController extends Controller
         
         $procurements = new Procurements();
 
-        $procurements->email = request('email');
-        $procurements->country = request('country');
+        $procurements->name = request('name');
+        $procurements->department_name = request('dept_name');
+        $procurements->item_name = request('item_name');
+        $procurements->quantity = request('quantity');
+        $procurements->budget = request('budget');
+        $procurements->description = request('description');
 
         $procurements->save();
 

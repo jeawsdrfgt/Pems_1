@@ -43,19 +43,33 @@
     </aside>
 
     <main>
-        <h1>Requisition form</h1>
+        <h1>Submit a request</h1>
        <section>
-        <form action='' method='POST'>
-            @csrf
-            <input type="text" placeholder="Item Name" name="item_name" required>
-            <input type="text" placeholder="Quantity" name="quantity" required>
-            <input type="text" placeholder="Budget Estimate" name="budget" required>
-            <input type="text" placeholder="Description" name="description" required>
-
-            <div class="container-snd">
-                <input type="submit" value="Subscribe">
-            </div>
+        <div>
+            <h2>Fill out the requisition form below</h2>
+            <form action='/procurement/makesubmission' method='POST'>
+                @csrf
+                <h3>Name</h3>
+                <input type="text" placeholder="Your Name" name="dept_name" required>
+                <h3>ID</h3>
+                <input type="text" placeholder="Employee ID" name="emp_no" required>
+                <h3>Department</h3>
+                <input type="text" placeholder="Department Name" name="dept_name" required>
+                <h3>Item Name</h3>
+                <input type="text" placeholder="Item Name" name="item_name" required>
+                <h3>Quantity</h3>
+                <input type="text" placeholder="Quantity" name="quantity" required>
+                <h3>Budget</h3>
+                <input type="text" placeholder="Budget Estimate" name="budget" required>
+                <h3>Desctiption</h3>
+                <input type="text" placeholder="Description" name="description" required>
+    
+                <div class="container-snd">
+                    <input type="submit" value="Submit">
+                </div>
+        </div>
         </form>
+
 
        </section>
 
