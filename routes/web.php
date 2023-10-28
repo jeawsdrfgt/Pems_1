@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\EmployeeinfoController;
 use App\Http\Controllers\Admin\userController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\procurementController;
+use App\Http\Controllers\UserRequestController;
 
 
 
@@ -74,4 +75,7 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 Route::post('/procurement/makesubmission', [procurementController::class, 'store'])->name('store');
+
+Route::get('/user', [UserRequestController::class, 'index'])->middleware('auth');
+
    

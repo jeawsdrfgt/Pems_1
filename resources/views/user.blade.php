@@ -47,15 +47,12 @@
             @csrf
         </form>
     </aside>
-
     <main>
         <h1>Hello {{ Auth::user()->name }}</h1>
 
         <div class="user_content">
             <div class="user_info">
                 <section>
-                    <h2>Account Information</h2>
-                    <hr>
                     <div class="row">
                         <div class="col-md-3">
                             <div class="board board-body bg-primary text-white mb-3">
@@ -63,7 +60,12 @@
                                     <div class="sales">
                                         <div class="status">
                                                 <div class="info">
-                                                    <h3>User Details</h3>
+                                                    <h2>User Details</h2>
+                                                    <h3>Name:<br>{{ $user->name }}</h3>
+                                                    <h3>Employee Number: </h3>
+                                                    <h3>Email:  {{ $user->email }}</h3>
+                                                    <h3>Department: </h3>
+                                                    <h3>Phone Number: </h3>
                                                 </div>
                                         </div>
                                     </div>
@@ -136,5 +138,9 @@
 
             </div>
         </div>
+</div>
+   
 
 
+        
+        
