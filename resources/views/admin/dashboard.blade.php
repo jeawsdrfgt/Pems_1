@@ -15,7 +15,7 @@
                     </span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="/procurement">
+                <a href="/admin/procurement">
                     <span class="material-icons-sharp">
                         inventory
                     </span>
@@ -39,11 +39,11 @@
                     </span>
                     <h3>Notifications</h3>
                 </a>                
-                <a href="employees.html">
+                <a href="/admin/createuser">
                     <span class="material-icons-sharp">
                         groups
                     </span>
-                    <h3>Employees</h3>
+                    <h3>Employee Management</h3>
                 </a>
                 <a href="/admin/user">
                     <span class="material-icons-sharp">
@@ -59,12 +59,60 @@
 
             <div class="dashboard">
             </div>
-
             <div class="row">
                 <div class="col-md-3">
                     <div class="board board-body bg-primary text-white mb-3">
-                        <label>Site Statistics</label>
-                           
+                        <div class="analyse">
+                            <div class="sales">
+                                <div class="status">
+                                    <div class="info">
+                                        <h3>Registered Employees</h3>
+                                        <h1></h1>
+                                    </div>
+                                    <div class="progresss">
+                                        <div class="percentage">
+                                            <?php
+
+                                            $connection = mysqli_connect("localhost","root","","pems");
+
+
+                                            $query = "SELECT id FROM users ORDER BY id";
+                                            $query_run = mysqli_query($connection, $query);
+
+                                            $row = mysqli_num_rows($query_run);
+
+                                            echo '<h1>'.$row.'</h1>';
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="visits">
+                                <div class="status">
+                                    <div class="info">
+                                        <h3>Submitted Procurement Requests</h3>
+                                        <h1></h1>
+                                    </div>
+                                    <div class="progresss">
+                                        <div class="percentage">
+                                            <?php
+
+                                            $connection = mysqli_connect("localhost","root","","pems");
+
+
+                                            $query = "SELECT id FROM procurements ORDER BY id";
+                                            $query_run = mysqli_query($connection, $query);
+
+                                            $row = mysqli_num_rows($query_run);
+
+                                            echo '<h1>'.$row.'</h1>';
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
                     </div>
                 </div>
             </div>

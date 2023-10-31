@@ -69,5 +69,15 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        //sets def role to admin
+        $userData = array_merge($data, ['role' => $data['role'] ?? 'admin']);
+
+        $user = User::create($userData);
+        $token = $user->createToken('my-token')->plainTextToken;
+
+        return response()->json([
+            'token' =>$token,
+            'Type' => 'Bearer'
+        ]);
     }
 }

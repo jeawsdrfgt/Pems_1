@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EmployeeinfoController;
 use App\Http\Controllers\Admin\userController;
+use App\Http\Controllers\Admin\createUserController;
+use App\Http\Controllers\Admin\SubmitController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\procurementController;
 use App\Http\Controllers\UserRequestController;
@@ -51,6 +53,14 @@ Route::prefix('admin')->group(function (){
 });
 
 Route::prefix('admin')->group(function (){
+    Route::get('/procurement', [DashboardController::class, 'procurement'])->middleware('auth');
+});
+
+Route::prefix('admin')->group(function (){
+    Route::get('/procurement/makesubmission', [SubmitController::class, 'index'])->middleware('auth');
+});
+
+Route::prefix('admin')->group(function (){
     Route::get('/employeeinfo', [EmployeeinfoController::class, 'index'])->middleware('auth');
 });
 
@@ -69,7 +79,7 @@ Route::post('/user', [HomeController::class, 'updatePassword'])->name('update-pa
 Route::post('/auth/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::resource('roles', RoleController::class);
+    Route::resource('admin/dashboard', DashboardController::class);
     Route::resource('users', UserController::class);
     
 });
@@ -77,5 +87,10 @@ Route::group(['middleware' => ['auth']], function() {
 Route::post('/procurement/makesubmission', [procurementController::class, 'store'])->name('store');
 
 Route::get('/user', [UserRequestController::class, 'index'])->middleware('auth');
+
+Route::prefix('admin')->group(function (){
+    Route::get('/createuser', [createUserController::class, 'index'])->middleware('auth');
+});
+
 
    

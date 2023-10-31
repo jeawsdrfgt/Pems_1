@@ -43,7 +43,7 @@
                 <span class="material-icons-sharp">
                     groups
                 </span>
-                <h3>Employees</h3>
+                <h3>Employee Management</h3>
             </a>
             <a href="{{ route('logout') }}"
             onclick="event.preventDefault();

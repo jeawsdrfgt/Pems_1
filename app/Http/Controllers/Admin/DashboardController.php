@@ -15,6 +15,11 @@ class DashboardController extends Controller
         if ($user->hasRole('user')){
             echo "User is Admin";
         }
-        //return view('admin.dashboard');
+        return view('admin.dashboard');
+    }
+
+    public function procurement()
+    {
+        return view('admin.procurement');
     }
 }
