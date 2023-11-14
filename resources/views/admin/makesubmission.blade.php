@@ -59,10 +59,10 @@
        <section>
         <div>
             <h2>Fill out the requisition form below</h2>
-            <form action='/procurement/makesubmission' method='POST'>
+            <form action='admin/procurements/makesubmission' method='POST'>
                 @csrf
                 <h3>Name</h3>
-                <input type="text" placeholder="Your Name" name="dept_name" required>
+                <input type="text" placeholder="Your Name" name="name" required>
                 <h3>ID</h3>
                 <input type="text" placeholder="Employee ID" name="emp_no" required>
                 <h3>Department</h3>

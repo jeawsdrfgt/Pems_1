@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\EmployeeinfoController;
 use App\Http\Controllers\Admin\userController;
 use App\Http\Controllers\Admin\createUserController;
 use App\Http\Controllers\Admin\SubmitController;
+use App\Http\Controllers\Admin\AdminprocurementController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\procurementController;
 use App\Http\Controllers\UserRequestController;
@@ -26,9 +27,7 @@ use App\Http\Controllers\UserRequestController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -85,6 +84,12 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 Route::post('/procurement/makesubmission', [procurementController::class, 'store'])->name('store');
+
+Route::post('/admin/procurement/makesubmission', [AdminprocurementController::class, 'store'])->name('store');
+
+Route::prefix('admin')->group(function (){
+    Route::post('/procurement/makesubmission', [AdminprocurementController::class, 'store'])->name('store');
+});
 
 Route::get('/user', [UserRequestController::class, 'index'])->middleware('auth');
 
