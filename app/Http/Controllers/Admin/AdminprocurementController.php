@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdminProcurements;
 use Illuminate\Http\Request;
 
 class AdminprocurementController extends Controller
@@ -17,18 +18,18 @@ class AdminprocurementController extends Controller
     public function store()
      {
          
-         $procurements = new Procurements();
+         $adminprocurements = new AdminProcurements();
  
-         $procurements->name = request('name');
-         $procurements->department_name = request('dept_name');
-         $procurements->item_name = request('item_name');
-         $procurements->quantity = request('quantity');
-         $procurements->budget = request('budget');
-         $procurements->description = request('description');
+         $adminprocurements->name = request('name');
+         $adminprocurements->department_name = request('dept_name');
+         $adminprocurements->item_name = request('item_name');
+         $adminprocurements->quantity = request('quantity');
+         $adminprocurements->budget = request('budget');
+         $adminprocurements->description = request('description');
  
-         $procurements->save();
+         $adminprocurements->save();
  
-         error_log($procurements);
+         error_log($adminprocurements);
  
          
          return redirect('admin.dashboard');

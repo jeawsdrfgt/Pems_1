@@ -111,6 +111,30 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="visits">
+                                <div class="status">
+                                    <div class="info">
+                                        <h3>Administrator Procurement Requests</h3>
+                                        <h1></h1>
+                                    </div>
+                                    <div class="progresss">
+                                        <div class="percentage">
+                                            <?php
+
+                                            $connection = mysqli_connect("localhost","root","","pems");
+
+
+                                            $query = "SELECT id FROM admin_procurements ORDER BY id";
+                                            $query_run = mysqli_query($connection, $query);
+
+                                            $row = mysqli_num_rows($query_run);
+
+                                            echo '<h1>'.$row.'</h1>';
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             
                         </div>
                     </div>

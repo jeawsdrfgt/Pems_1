@@ -56,15 +56,23 @@
                             <div class="sales">
                                 <div class="status">
                                     <div class="info">
-                                        <h3>Procurement Status</h3>
+                                        <h3>Total Submitted Procurements</h3>
                                         <h1></h1>
                                     </div>
                                     <div class="progresss">
-                                        <svg>
-                                            <circle cx="38" cy="38" r="36"></circle>
-                                        </svg>
                                         <div class="percentage">
-                                            <p>+81%</p>
+                                            <?php
+
+                                            $connection = mysqli_connect("localhost","root","","pems");
+
+
+                                            $query = "SELECT id FROM procurements ORDER BY id";
+                                            $query_run = mysqli_query($connection, $query);
+
+                                            $row = mysqli_num_rows($query_run);
+
+                                            echo '<h1>'.$row.'</h1>';
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -72,15 +80,25 @@
                             <div class="visits">
                                 <div class="status">
                                     <div class="info">
-                                        <h3>Request Results</h3>
+                                        <h3>Personally Submitted Requests</h3>
                                         <h1></h1>
                                     </div>
                                     <div class="progresss">
-                                        <svg>
-                                            <circle cx="38" cy="38" r="36"></circle>
-                                        </svg>
+                                       
                                         <div class="percentage">
-                                            <p>-48%</p>
+                                            <?php
+
+                                            $connection = mysqli_connect("localhost","root","","pems");
+
+
+                                            $query = "SELECT id FROM procurements ORDER BY id ";
+                                            $query_run = mysqli_query($connection, $query);
+
+                                            $row = mysqli_num_rows($query_run);
+
+                                            echo '<h1>'.$row.'</h1>';
+                                            ?>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -92,21 +110,7 @@
             </div>
         </main>
 
-        <div class="right-section">
-            <div class="nav">
-                <button id="menu-btn">
-                    <span class="material-icons-sharp">
-                        menu
-                    </span>
-                </button>
-                <div class="dark-mode">
-                    <span class="material-icons-sharp active">
-                        light_mode
-                    </span>
-                    <span class="material-icons-sharp">
-                        dark_mode
-                    </span>
-                </div>
+       
 
     </div>
 

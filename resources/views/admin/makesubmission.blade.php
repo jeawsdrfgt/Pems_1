@@ -59,7 +59,7 @@
        <section>
         <div>
             <h2>Fill out the requisition form below</h2>
-            <form action='admin/procurements/makesubmission' method='POST'>
+            <form action='' method='POST'>
                 @csrf
                 <h3>Name</h3>
                 <input type="text" placeholder="Your Name" name="name" required>

@@ -29,9 +29,11 @@ use App\Http\Controllers\UserRequestController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
 
 Route::get('/user', function () {
     return view('user');
@@ -48,23 +50,23 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->group(function (){
-    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+    Route::get('/dashboard', [DashboardController::class, 'procurement'])->middleware('role');
 });
 
 Route::prefix('admin')->group(function (){
-    Route::get('/procurement', [DashboardController::class, 'procurement'])->middleware('auth');
+    Route::get('/procurement', [DashboardController::class, 'procurement'])->middleware('role');
 });
 
 Route::prefix('admin')->group(function (){
-    Route::get('/procurement/makesubmission', [SubmitController::class, 'index'])->middleware('auth');
+    Route::get('/procurement/makesubmission', [SubmitController::class, 'index'])->middleware('role');
 });
 
 Route::prefix('admin')->group(function (){
-    Route::get('/employeeinfo', [EmployeeinfoController::class, 'index'])->middleware('auth');
+    Route::get('/employeeinfo', [EmployeeinfoController::class, 'index'])->middleware('role');
 });
 
 Route::prefix('admin')->group(function (){
-    Route::get('/user', [userController::class, 'index'])->middleware('auth');
+    Route::get('/user', [userController::class, 'index'])->middleware('role');
 });
 
 Route::prefix('procurement')->group(function (){
@@ -77,7 +79,7 @@ Route::post('/user', [HomeController::class, 'updatePassword'])->name('update-pa
 
 Route::post('/auth/login', [AuthController::class, 'login']);
 
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['role']], function() {
     Route::resource('admin/dashboard', DashboardController::class);
     Route::resource('users', UserController::class);
     
@@ -87,9 +89,7 @@ Route::post('/procurement/makesubmission', [procurementController::class, 'store
 
 Route::post('/admin/procurement/makesubmission', [AdminprocurementController::class, 'store'])->name('store');
 
-Route::prefix('admin')->group(function (){
-    Route::post('/procurement/makesubmission', [AdminprocurementController::class, 'store'])->name('store');
-});
+
 
 Route::get('/user', [UserRequestController::class, 'index'])->middleware('auth');
 
