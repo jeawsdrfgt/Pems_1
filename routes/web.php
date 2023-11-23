@@ -10,7 +10,9 @@ use App\Http\Controllers\Admin\userController;
 use App\Http\Controllers\Admin\createUserController;
 use App\Http\Controllers\Admin\SubmitController;
 use App\Http\Controllers\Admin\AdminprocurementController;
+use App\Http\Controllers\Admin\AdminSubmissionController;
 use App\Http\Controllers\Admin\AdminUserRequestController;
+use App\Http\Controllers\Admin\AdminviewsubController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\procurementController;
 use App\Http\Controllers\UserRequestController;
@@ -60,7 +62,11 @@ Route::prefix('admin')->group(function (){
 });
 
 Route::prefix('admin')->group(function (){
-    Route::get('/procurement/makesubmission', [SubmitController::class, 'index'])->middleware('role');
+    Route::get('/procurement/makesubmission', [AdminSubmissionController::class, 'index'])->middleware('role');
+});
+
+Route::prefix('admin')->group(function (){
+    Route::get('/procurement/viewsubmission', [AdminviewsubController::class, 'index'])->middleware('role');
 });
 
 Route::prefix('admin')->group(function (){

@@ -76,10 +76,13 @@
                         </div>
                         <div class="visits">
                             <div class="status">
-                                <div class="info">
-                                    <h3>View submission requests</h3>
-                                    <h1></h1>
-                                </div>
+                                <a class="toggle" href="{{ url('/admin/procurement/viewsubmission') }}">
+                                    <div class="info">
+                                        <h3><u>View submission requests</u></h3>
+                                        
+                                    </div>
+                                </a>
+                               
                                 
                             </div>
                         </div>
