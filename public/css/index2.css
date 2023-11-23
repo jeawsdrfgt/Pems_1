@@ -333,3 +333,11 @@ input[type=submit]{
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
+
+table, th, td{
+    border: 1px solid;
+    width: 100%;
+    border-collapse: collapse;
+    font-weight: 800;
+    font-size: 0.87rem;
+}

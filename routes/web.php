@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubmissionController;
+use App\Http\Controllers\viewsubcontroller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EmployeeinfoController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\Admin\userController;
 use App\Http\Controllers\Admin\createUserController;
 use App\Http\Controllers\Admin\SubmitController;
 use App\Http\Controllers\Admin\AdminprocurementController;
+use App\Http\Controllers\Admin\AdminUserRequestController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\procurementController;
 use App\Http\Controllers\UserRequestController;
@@ -73,6 +75,10 @@ Route::prefix('procurement')->group(function (){
     Route::get('/makesubmission', [SubmissionController::class, 'index'])->name('makesubmission');
 });
 
+Route::prefix('procurement')->group(function (){
+    Route::get('/viewsubmission', [viewsubcontroller::class, 'index'])->name('viewsubmission');
+});
+
 Route::get('/user', [HomeController::class, 'changePassword'])->name('change-password');
 
 Route::post('/user', [HomeController::class, 'updatePassword'])->name('update-password');
@@ -92,6 +98,12 @@ Route::post('/admin/procurement/makesubmission', [AdminprocurementController::cl
 
 
 Route::get('/user', [UserRequestController::class, 'index'])->middleware('auth');
+
+Route::get('/viewsubmission', [viewsubcontroller::class, 'show'])->middleware('auth');
+
+Route::prefix('admin')->group(function (){
+    Route::get('/user', [AdminUserRequestController::class, 'index'])->middleware('role');
+});
 
 Route::prefix('admin')->group(function (){
     Route::get('/createuser', [createUserController::class, 'index'])->middleware('auth');

@@ -27,12 +27,20 @@
                     </span>
                     <h3>Notifications</h3>
                 </a>
-                <a href="employees.html">
+                <a href="/employeeinfo">
                     <span class="material-icons-sharp">
                         groups
                     </span>
                     <h3>Employees</h3>
                 </a>
+                @if (auth()->user()->is_admin)
+                <a href="/admin/dashboard">
+                    <span class="material-icons-sharp">
+                        admin_panel_settings
+                        </span>
+                    <h3>Admin Dashboard</h3>
+                </a>
+                @endif
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/user" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     <span class="material-icons-sharp">
                         manage_accounts
@@ -108,6 +116,7 @@
                     </div>
                 </div>
             </div>
+           
         </main>
 
        

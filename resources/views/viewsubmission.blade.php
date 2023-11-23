@@ -1,6 +1,6 @@
-@extends('layouts.layout2')
+@extends('layouts.viewsubmissionlayout')
 
-@section('procurecontent')
+@section('viewsubmissioncontent')
 <div class="container-1">
     <aside>
         <a class="toggle" href="{{ url('/') }}">
@@ -32,7 +32,8 @@
                     groups
                 </span>
                 <h3>Employees</h3>
-                @if (auth()->user()->is_admin)
+            </a>
+            @if (auth()->user()->is_admin)
                 <a href="/admin/dashboard">
                     <span class="material-icons-sharp">
                         admin_panel_settings
@@ -40,7 +41,6 @@
                     <h3>Admin Dashboard</h3>
                 </a>
                 @endif
-            </a>
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/user" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 <span class="material-icons-sharp">
                     manage_accounts
@@ -51,45 +51,37 @@
     </aside>
 
     <main>
-        <h1>Manage Your Procurement Requests</h1>
+        <h1>View procurement requests</h1>
+       <section>
+        <div>
+            <table>
+                <tr>
+                   <td>Name</td>
+                   <td>Item</td>
+                   <td>Department</td>
+                   <td>Quantity</td>
+                   <td>Description</td>
+                </tr>
+                @foreach ($procurements as $procurements)
+                <tr>
+                   <td>{{$procurements->name}}</td>
+                   <td>{{ $procurements->item_name }}</td>
+                   <td>{{ $procurements->department_name }}</td>
+                   <td>{{ $procurements->quantity }}</td>
+                   <td>{{ $procurements->description }}</td>
+                </tr>
+                @endforeach
+             </table>
+         <ul>
+        
+    </ul>
+</body>
+</html>
 
-        <div class="dashboard">
         </div>
+        </form>
 
-        <div class="row">
-            <div class="col-md-3">
-                <div class="board board-body bg-primary text-white mb-3">
-                    <div class="procurement-1">
-                        <div class="sales">
-                            <div class="status">
-                                <a class="toggle" href="{{ url('/procurement/makesubmission') }}">
-                                    <div class="info">
-                                        <h3><u>Make a submission</u></h3>
-                                        
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="visits">
-                            <div class="status">
-                                <a class="toggle" href="{{ url('/procurement/viewsubmission') }}">
-                                    <div class="info">
-                                        <h3><u>View submission requests</u></h3>
-                                        
-                                    </div>
-                                </a>
-                               
-                                
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h1>Title</h1>
+
+       </section>
+
     </main>
-
-    
-
-</div>

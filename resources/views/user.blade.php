@@ -62,8 +62,8 @@
                                                 <div class="info">
                                                     <h2>User Details</h2>
                                                     <h3>Name:<br>{{ $user->name }}</h3>
-                                                    <h3>Employee Number: </h3>
-                                                    <h3>Email:  {{ $user->email }}</h3>
+                                                    <h3>Employee Number:<br>{{ $user->id }}  </h3>
+                                                    <h3>Email:<br>{{ $user->email }}</h3>
                                                     <h3>Department: </h3>
                                                     <h3>Phone Number: </h3>
                                                 </div>

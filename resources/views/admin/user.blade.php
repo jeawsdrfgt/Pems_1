@@ -3,7 +3,7 @@
 @section('adminusercontent')
 <div class="container-1">
     <aside>
-        <a class="toggle" href="{{ url('/dashboard') }}">
+        <a class="toggle" href="{{ url('/admin/dashboard') }}">
             <div class="logo">
                 <h2>PEM<span class="danger">Sys</span></h2>
             </div>
@@ -15,7 +15,7 @@
                 </span>
                 <h3>Dashboard</h3>
             </a>
-            <a href="/procurement">
+            <a href="/admin/procurement">
                 <span class="material-icons-sharp">
                     inventory
                 </span>
@@ -39,7 +39,7 @@
                 </span>
                 <h3>Notifications</h3>
             </a>                
-            <a href="employees.html">
+            <a href="/admin/createuser">
                 <span class="material-icons-sharp">
                     groups
                 </span>
@@ -72,13 +72,16 @@
                         <div class="col-md-3">
                             <div class="board board-body bg-primary text-white mb-3">
                                 <div class="procurement-1">
-                                    <div class="sales">
-                                        <div class="status">
-                                                <div class="info">
-                                                    <h3>User Details</h3>
-                                                </div>
+                                    <div class="status">
+                                        <div class="info">
+                                            <h2>User Details</h2>
+                                            <h3>Name:<br>{{ $user->name }}</h3>
+                                            <h3>Employee Number:<br>{{ $user->id }}  </h3>
+                                            <h3>Email:<br>{{ $user->email }}</h3>
+                                            <h3>Department:<br> Site Administrator </h3>
+                                            <h3>Phone Number: </h3>
                                         </div>
-                                    </div>
+                                </div>
                                     <div class="visits">
                                         <div class="status">
                                             <div class="info">

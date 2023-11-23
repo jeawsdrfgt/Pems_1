@@ -29,7 +29,9 @@
                 </a>
                 <a href="/admin/employeeinfo">
                     <span class="material-icons-sharp">
-                        account_box
+                        <span class="material-icons-sharp">
+                            badge
+                            </span>
                     </span>
                     <h3>Employee Information</h3>
                 </a>
@@ -44,6 +46,14 @@
                         groups
                     </span>
                     <h3>Employee Management</h3>
+                </a>
+                <a href="/dashboard">
+                    <span class="material-icons-sharp">
+                        <span class="material-icons-sharp">
+                            dashboard_customize
+                            </span>
+                        </span>
+                    <h3>User Dashboard</h3>
                 </a>
                 <a href="/admin/user">
                     <span class="material-icons-sharp">

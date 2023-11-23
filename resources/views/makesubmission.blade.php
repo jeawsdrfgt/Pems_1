@@ -33,6 +33,14 @@
                 </span>
                 <h3>Employees</h3>
             </a>
+            @if (auth()->user()->is_admin)
+                <a href="/admin/dashboard">
+                    <span class="material-icons-sharp">
+                        admin_panel_settings
+                        </span>
+                    <h3>Admin Dashboard</h3>
+                </a>
+                @endif
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/user" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 <span class="material-icons-sharp">
                     manage_accounts
@@ -50,7 +58,7 @@
             <form action='/procurement/makesubmission' method='POST'>
                 @csrf
                 <h3>Name</h3>
-                <input type="text" placeholder="Your Name" name="dept_name" required>
+                <input type="text" placeholder="Your Name" name="name" required>
                 <h3>ID</h3>
                 <input type="text" placeholder="Employee ID" name="emp_no" required>
                 <h3>Department</h3>
