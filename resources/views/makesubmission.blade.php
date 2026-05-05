@@ -13,7 +13,7 @@
                 <span class="material-icons-sharp">
                     space_dashboard
                 </span>
-                <h3>Dashboard</h3>
+                <h3>Dashboardx</h3>
             </a>
             <a href="/procurement">
                 <span class="material-icons-sharp">
